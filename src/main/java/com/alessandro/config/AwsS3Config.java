@@ -11,7 +11,7 @@ public class AwsS3Config {
     @Bean
     public S3Client s3Client() {
         return S3Client.builder()
-                .region(Region.of("us-east-1")) // Cambia la región si usas otra
+                .region(Region.of("us-east-1"))
                 .credentialsProvider(DefaultCredentialsProvider.create()) // Lambda usará el rol IAM asignado
                 .build();
     }

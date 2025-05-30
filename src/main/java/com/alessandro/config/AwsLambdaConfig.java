@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.Base64;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 @Configuration
 public class AwsLambdaConfig {
@@ -28,5 +29,10 @@ public class AwsLambdaConfig {
                 return "Error al subir archivo: " + e.getMessage();
             }
         };
+    }
+
+    @Bean
+    public Supplier<String> greeting(){
+        return () -> "Hello World";
     }
 }
