@@ -22,57 +22,49 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-function-context</artifactId>
+		</dependency>
 
-		<!-- AWS SDK S3 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-function-adapter-aws</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>software.amazon.awssdk</groupId>
 			<artifactId>s3</artifactId>
 			<version>2.29.43</version>
 		</dependency>
 
-		<!-- Spring Cloud Function core -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-function-context</artifactId>
-		</dependency>
-
-		<!-- Adapter para AWS Lambda -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-function-adapter-aws</artifactId>
-		</dependency>
-
-		<!-- Lombok -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.24</version> <!-- Versión de Lombok -->
-			<optional>true</optional>
-		</dependency>
-
-		<!-- Spring Boot Configuration Processor -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<version>3.1.5</version> <!-- Versión de Spring Boot -->
-			<optional>true</optional>
-		</dependency>
-
-		<!-- Devtools -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-
-		<!-- Test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-lambda-java-events</artifactId>
+			<version>3.11.1</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-function-web</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>
@@ -89,36 +81,6 @@
 
 	<build>
 		<plugins>
-			<!-- Compilador y anotaciones -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.springframework.boot</groupId>
-							<artifactId>spring-boot-configuration-processor</artifactId>
-							<version>3.1.5</version> <!-- Versión de Spring Boot -->
-						</path>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-							<version>1.18.24</version> <!-- Versión de Lombok -->
-						</path>
-					</annotationProcessorPaths>
-				</configuration>
-			</plugin>
-
-			<!-- Spring Boot plugin -->
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
-			<!-- Empaquetado tipo Lambda -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
