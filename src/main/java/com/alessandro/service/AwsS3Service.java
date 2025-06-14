@@ -12,8 +12,11 @@ import java.util.UUID;
 public class AwsS3Service {
 
 
+// conexion service s3
     private final S3Client s3Client;
-    private final String bucketName = "imagenes-portfolio-alessandro"; // reemplázalo con el tuyo
+
+//   bucket
+    private final String bucketName = "imagenes-portfolio-alessandro";
 
     public AwsS3Service(S3Client s3Client) {
         this.s3Client = s3Client;
@@ -46,5 +49,10 @@ public class AwsS3Service {
 
         return "https://" + bucketName + ".s3.amazonaws.com/" + key;
     }
+
+
+
+
+
 
 }
